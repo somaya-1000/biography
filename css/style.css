@@ -1,0 +1,761 @@
+/* =========================
+   العام - الهوية الخوخية
+========================= */
+
+:root {
+    --primary: #FAA18F;          /* الخوخي الأساسي */
+    --primary-dark: #F58C78;     /* درجة أغمق قليلاً للتفاعل */
+    --primary-light: #FFE2D8;    /* درجة فاتحة للخلفيات */
+    --primary-soft: #FFF3EE;     /* درجة أخف للتفاصيل */
+    --page: #FFF8F5;             /* خلفية الصفحة */
+
+    --white: #FFFFFF;
+
+    --deep: #6E3327;             /* خوخي داكن للعناوين */
+    --deep-soft: #8A4B3C;        /* خوخي متوسط للنصوص الثانوية */
+    --mid: #A34E3B;              /* خوخي متوسط للأيقونات والعناوين الصغيرة */
+    --text: #4A332C;             /* نص الجسم */
+    --muted: #8C6A60;            /* نص هادئ */
+    --border: #FCE0D8;           /* حدود خوخية فاتحة */
+
+    --shadow: 0 12px 35px rgba(250, 161, 143, 0.18);
+    --shadow-hover: 0 14px 32px rgba(200, 98, 76, 0.14);
+    --radius: 22px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Cairo", sans-serif;
+    background: var(--page);
+    color: var(--text);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--mid);
+    outline-offset: 4px;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
+
+/* =========================
+   الحاوية الرئيسية
+========================= */
+
+.cv-container {
+    width: min(1100px, 92%);
+    margin: 35px auto;
+}
+
+
+/* =========================
+   الواجهة الرئيسية
+========================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(255, 255, 255, 0.65),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            var(--primary-soft) 0%,
+            var(--primary-light) 48%,
+            var(--primary) 135%
+        );
+
+    color: var(--deep);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+    padding: 65px 60px;
+    box-shadow: var(--shadow);
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    transform: rotate(45deg);
+}
+
+.hero::before {
+    width: 180px;
+    height: 180px;
+    left: -80px;
+    bottom: -100px;
+}
+
+.hero::after {
+    width: 120px;
+    height: 120px;
+    left: 60px;
+    top: -80px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.small-title {
+    display: inline-block;
+    color: var(--mid);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 72px);
+    line-height: 1.2;
+    font-weight: 800;
+    color: var(--deep);
+    margin-bottom: 5px;
+}
+
+.hero h2 {
+    font-size: clamp(18px, 3vw, 27px);
+    font-weight: 600;
+    color: var(--deep-soft);
+    margin-bottom: 10px;
+}
+
+.location {
+    color: var(--deep-soft);
+    font-size: 15px;
+    margin-bottom: 28px;
+}
+
+
+/* =========================
+   زر واتساب
+========================= */
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    background: var(--primary);
+    color: var(--deep);
+
+    padding: 13px 23px;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    box-shadow: 0 8px 20px rgba(200, 98, 76, 0.12);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.whatsapp-button:hover {
+    transform: translateY(-3px);
+    background: var(--primary-dark);
+    color: var(--deep);
+    box-shadow: 0 12px 26px rgba(200, 98, 76, 0.22);
+}
+
+.whatsapp-button:active {
+    transform: translateY(0);
+}
+
+.whatsapp-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.whatsapp-button.large {
+    padding: 15px 28px;
+}
+
+
+/* =========================
+   الأقسام
+========================= */
+
+.section {
+    background: var(--white);
+    border: 1px solid rgba(252, 224, 216, 0.7);
+    border-radius: var(--radius);
+    padding: 38px;
+    margin-top: 25px;
+    box-shadow: var(--shadow);
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.section-title h2 {
+    font-size: 25px;
+    color: var(--deep);
+    font-weight: 800;
+    position: relative;
+    padding-bottom: 6px;
+}
+
+.section-title h2::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 42px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--primary);
+}
+
+.title-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+
+    background: var(--primary-soft);
+    color: var(--mid);
+
+    border-radius: 12px;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.about p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 2;
+}
+
+
+/* =========================
+   المهارات
+========================= */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+}
+
+.skill-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background: var(--primary-soft);
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+    padding: 14px 16px;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary);
+    background: var(--primary-light);
+    box-shadow: var(--shadow-hover);
+}
+
+.skill-card span {
+    color: var(--mid);
+    font-size: 17px;
+    line-height: 1;
+}
+
+.skill-card p {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+
+/* =========================
+   المشاريع
+========================= */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.project-card {
+    position: relative;
+
+    border: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--white), var(--primary-soft));
+
+    border-radius: 18px;
+    padding: 24px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-hover);
+}
+
+.project-number {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+    color: var(--deep);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    margin-bottom: 17px;
+}
+
+.project-card h3 {
+    color: var(--deep);
+    font-size: 17px;
+    margin-bottom: 9px;
+}
+
+.project-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+/* =========================
+   التعليم
+========================= */
+
+.education-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    background: linear-gradient(135deg, var(--primary-soft), var(--white));
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    padding: 22px;
+}
+
+.education-icon {
+    width: 55px;
+    height: 55px;
+    flex: 0 0 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-light);
+    border-radius: 15px;
+
+    font-size: 25px;
+}
+
+.education-card h3 {
+    color: var(--deep);
+    font-size: 18px;
+}
+
+.education-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* =========================
+   التواصل
+========================= */
+
+.contact-section {
+    margin-top: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+
+    background:
+        radial-gradient(
+            circle at 95% 5%,
+            rgba(255, 255, 255, 0.6),
+            transparent 30%
+        ),
+        linear-gradient(135deg, var(--primary-soft), var(--primary-light));
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    color: var(--deep);
+
+    border-radius: var(--radius);
+    padding: 40px;
+
+    box-shadow: var(--shadow);
+}
+
+.contact-section .small-title {
+    color: var(--mid);
+}
+
+.contact-section h2 {
+    font-size: 27px;
+    margin-bottom: 8px;
+    color: var(--deep);
+}
+
+.contact-section p {
+    color: var(--deep-soft);
+    font-size: 14px;
+    max-width: 600px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    min-width: 230px;
+}
+
+.phone {
+    color: var(--deep-soft);
+    font-size: 14px;
+    font-weight: 600;
+    direction: ltr;
+    unicode-bidi: isolate;
+    transition: color 0.25s ease;
+}
+
+.phone:hover {
+    color: var(--mid);
+}
+
+.location-bottom {
+    color: var(--deep-soft);
+    font-size: 12px;
+}
+
+
+/* =========================
+   التذييل
+========================= */
+
+footer {
+    text-align: center;
+    padding: 25px 10px 10px;
+    color: #A98175;
+    font-size: 12px;
+}
+
+
+/* =========================
+   زر العودة للأعلى
+========================= */
+
+.to-top {
+    position: fixed;
+    left: 22px;
+    bottom: 22px;
+    z-index: 10;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid var(--white);
+    border-radius: 50%;
+
+    background: var(--primary);
+    color: var(--deep);
+
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1;
+    cursor: pointer;
+
+    box-shadow: 0 8px 22px rgba(200, 98, 76, 0.2);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.to-top:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   حركات الظهور
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.is-shown {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================
+   الاستجابة - التابلت
+========================= */
+
+@media (max-width: 850px) {
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .contact-info {
+        align-items: flex-start;
+    }
+}
+
+
+/* =========================
+   الاستجابة - الجوال
+========================= */
+
+@media (max-width: 650px) {
+
+    .cv-container {
+        width: 94%;
+        margin: 15px auto;
+    }
+
+    .hero {
+        padding: 45px 25px;
+        border-radius: 23px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+    }
+
+    .location {
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 25px 20px;
+        border-radius: 19px;
+    }
+
+    .section-title {
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .section-title h2 {
+        font-size: 21px;
+    }
+
+    .title-number {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+        font-size: 12px;
+    }
+
+    .about p {
+        font-size: 15px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+
+    .education-card {
+        gap: 14px;
+        padding: 18px;
+    }
+
+    .education-icon {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+        font-size: 22px;
+    }
+
+    .contact-section {
+        padding: 30px 22px;
+        border-radius: 19px;
+    }
+
+    .contact-section h2 {
+        font-size: 23px;
+    }
+
+    .contact-info {
+        width: 100%;
+    }
+
+    .whatsapp-button {
+        width: 100%;
+    }
+
+    .to-top {
+        left: 14px;
+        bottom: 14px;
+        width: 42px;
+        height: 42px;
+    }
+}
+
+
+/* =========================
+   تقليل الحركة
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* =========================
+   الطباعة
+========================= */
+
+@media print {
+
+    body {
+        background: white;
+    }
+
+    .cv-container {
+        width: 100%;
+        margin: 0;
+    }
+
+    .hero,
+    .section,
+    .contact-section {
+        box-shadow: none;
+    }
+
+    .to-top {
+        display: none;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
